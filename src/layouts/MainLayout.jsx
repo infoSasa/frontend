@@ -1,23 +1,23 @@
 import { Outlet } from 'react-router-dom'
-import { Header } from '../components/layout/Header.jsx'
-import { Footer } from '../components/layout/Footer.jsx'
-import { SideLeftPanel } from '../components/layout/SideLeftPanel.jsx'
-import { SideRightPanel } from '../components/layout/SideRightPanel.jsx'
+import { Header } from '../components/layout/Header/Header.jsx'
+import { Footer } from '../components/layout/Footer/Footer.jsx'
+import { SidePanelLeft } from '../components/layout/SidePanelLeft/SidePanelLeft.jsx'
+import { SidePanelRight } from '../components/layout/SidePanelRight/SidePanelRight.jsx'
 
-import '../styles/MainLayout.css'
+import styles from './MainLayout.module.css'
 
 export const MainLayout = () =>{
   return(
-    <div id="main-grid">
-      <div id="header-grid"><Header /></div>
-      <div id="side-left-panel"><SideLeftPanel /></div>
+    <div className={styles.mainLayoutGrid}>
+      <header className={styles.headerArea}><Header /></header>
+      <section className={styles.sideLeftArea}><SidePanelLeft /></section>
       <main>
-        <div id="outlet-panel">
+        <div className={styles.outletArea}>
           <Outlet />
         </div>
       </main>
-      <div id="side-right-panel"><SideRightPanel /></div>
-      <div id="footer"><Footer /></div>
+      <section className={styles.sideRightArea}><SidePanelRight /></section>
+      <footer className={styles.footerArea}><Footer /></footer>
     </div>
   )   
 }
